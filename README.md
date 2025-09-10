@@ -32,7 +32,7 @@
     c. Setelah ditemukan fungsi yang tepat, views akan mengambil template berupa berkas html.
     d. Views juga akan menuliskan konten dari berkas html dengan data yang dibaca dari models. 
     e. Setelah selesai mengisi berkas html, views akan memberikan respons kepada client berupa berkas html yang sudah berisikan data yang sesuai request client.
-
+ 
 3. Jelaskan peran settings.py dalam proyek Django!
     - settings.py adalah sebuah modul python dengan variabel berlevel module yang berisikan seluruh konfigurasi dari instalasi django. Contohnya, untuk mengonfigurasi host apa yang diperbolehkan untuk men-hosting proyek django, database yang digunakan, validasi password, dan lain-lain.
     - Referensi: https://docs.djangoproject.com/en/5.2/topics/settings/
