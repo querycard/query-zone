@@ -27,22 +27,23 @@
         - Karena sebelumnya saya sudah melakukan proses deployment, ketika saya push perubahannya ke pws, maka sudah terlihat perubahan yang saya buat pada proyek saya.
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+   <img width="839" height="559" alt="Screenshot 2025-09-10 090946" src="https://github.com/user-attachments/assets/dbd5ccf3-95f7-48d8-a885-e4a9082f8ba9" />
     a. Ketika request client ke web aplikasi masuk, request tersebut akan diterima oleh urls. 
     b. Request yang diterima oleh urls akan diteruskan ke views. Pada views, akan ditentukan fungsi apa yang tepat untuk request dari client. 
     c. Setelah ditemukan fungsi yang tepat, views akan mengambil template berupa berkas html.
     d. Views juga akan menuliskan konten dari berkas html dengan data yang dibaca dari models. 
     e. Setelah selesai mengisi berkas html, views akan memberikan respons kepada client berupa berkas html yang sudah berisikan data yang sesuai request client.
  
-3. Jelaskan peran settings.py dalam proyek Django!
+4. Jelaskan peran settings.py dalam proyek Django!
     - settings.py adalah sebuah modul python dengan variabel berlevel module yang berisikan seluruh konfigurasi dari instalasi django. Contohnya, untuk mengonfigurasi host apa yang diperbolehkan untuk men-hosting proyek django, database yang digunakan, validasi password, dan lain-lain.
     - Referensi: https://docs.djangoproject.com/en/5.2/topics/settings/
 
-4. Bagaimana cara kerja migrasi database di Django?
+5. Bagaimana cara kerja migrasi database di Django?
     - Migrasi database dimulai dengan perintah python manage.py makemigrations. Perintah makemigrations akan menciptakan berkas migrasi yang berisi perubahan model yang belum diaplikasikan ke dalam database. Setelah memiliki berkas migrasi yang berisi perubahan model, dilakukan migrasi ke dalam database lokal dengan menggunakan perintah python manage.py migrate. Perintah migrate akan mengaplikasikan perubahan model yang tercantum dalam berkas migrasi ke database dengan menjalankan perintah sebelumnya.
 
-5. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
+6. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
     - Alasan utamanya adalah karena Django merupakan framework yang open source sehingga bisa diakses dan dimodifikasi oleh umum tanpa harus membeli lisensi. Pengembangan web dengan django juga relatif mudah dan cepat karena frameworknya yang terorganisir dan sudah tersedia struktur yang siap pakai untuk aplikasi-aplikasi yang sudah umum. Proyek django juga memiliki skalabilitas yang baik karena dapat menerima ribuan permintaan tergantung dengan setting-up yang dilakukan pada hardware atau melalui proses caching.
     - Referensi: https://aws.amazon.com/id/what-is/django/
 
-6. Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
+7. Apakah ada feedback untuk asisten dosen tutorial 1 yang telah kamu kerjakan sebelumnya?
     - Tidak ada.
