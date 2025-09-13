@@ -83,8 +83,9 @@ Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, s
 ```
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+
+<img width="839" height="559" alt="Screenshot 2025-09-10 090946" src="https://github.com/user-attachments/assets/dbd5ccf3-95f7-48d8-a885-e4a9082f8ba9" />
 ```
-   <img width="839" height="559" alt="Screenshot 2025-09-10 090946" src="https://github.com/user-attachments/assets/dbd5ccf3-95f7-48d8-a885-e4a9082f8ba9" />
     a. Ketika request client ke web aplikasi masuk, request tersebut akan diterima oleh urls. 
     b. Request yang diterima oleh urls akan diteruskan ke views. Pada views, akan ditentukan fungsi apa yang tepat untuk request dari client. 
     c. Setelah ditemukan fungsi yang tepat, views akan mengambil template berupa berkas html.
