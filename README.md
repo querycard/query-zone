@@ -4,16 +4,16 @@
 # Tugas 3
 
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
-'''
-    Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, seperti untuk mengirim data dari stack Frontend ke Backend, di sini JSON menjadi penghubung dari HTML (sebagai bahasa yang digunakan untuk Frontend) ke Django (sebagai bahasa yang digunakan untuk Backend) untuk mengirimkan data di antara dua stack berbed atersebut.
-'''
+```
+Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, seperti untuk mengirim data dari stack Frontend ke Backend, di sini JSON menjadi penghubung dari HTML (sebagai bahasa yang digunakan untuk Frontend) ke Django (sebagai bahasa yang digunakan untuk Backend) untuk mengirimkan data di antara dua stack berbed atersebut.
+```
 
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
-'''
+```
     Menurut saya lebih baik JSON. Karena JSON lebih mudah ditulis daripada XML karena tidak memerlukan end tag. JSON juga lebih mudah dibaca karena syntaxnya relatif lebih pendek daripada XML.
 
     Referensi: https://www.w3schools.com/js/js_json_xml.asp
-'''
+```
 
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
 '''
