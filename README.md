@@ -28,7 +28,7 @@
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
     > a. Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
-        > Saya membuat fungsi bernama show_xml, show_xml_by_id, show_json, dan show_json_by_id. Untuk show_xml dan show_json akan menampilkan keseluruhan data product dalam format xml atau json. Sedangkan, untuk show_xml_by_id dan show_json_by_id akan menampilkan data satu product sesuai id pada url dalam format xml atau json.
+    - Saya membuat fungsi bernama show_xml, show_xml_by_id, show_json, dan show_json_by_id. Untuk show_xml dan show_json akan menampilkan keseluruhan data product dalam format xml atau json. Sedangkan, untuk show_xml_by_id dan show_json_by_id akan menampilkan data satu product sesuai id pada url dalam format xml atau json.
     > b. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 1. 
         > Saya menambahkan url pada urlpatterns di file urls.py yang akan meneruskan request yang diterima dari user ke function di views.py yang sesuai.
     c. Membuat halaman yang menampilkan data objek model yang memiliki tombol "Add" yang akan redirect ke halaman form, serta tombol "Detail" pada setiap data objek model yang akan menampilkan halaman detail objek.
