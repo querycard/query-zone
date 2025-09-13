@@ -25,7 +25,7 @@ class Product(models.Model):
     thumbnail = models.URLField()
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     is_featured = models.BooleanField(default=False)
-    
+    stock = models.IntegerField(default=0)
     bonus_points = models.IntegerField(default=0)
     brand = models.CharField(max_length=255, default="Unknown")
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default="Unisex")
