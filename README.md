@@ -75,11 +75,11 @@
 
 <img width="839" height="559" alt="Screenshot 2025-09-10 090946" src="https://github.com/user-attachments/assets/dbd5ccf3-95f7-48d8-a885-e4a9082f8ba9" />
 
-    - Ketika request client ke web aplikasi masuk, request tersebut akan diterima oleh urls. 
-    - Request yang diterima oleh urls akan diteruskan ke views. Pada views, akan ditentukan fungsi apa yang tepat untuk request dari client. 
-    - Setelah ditemukan fungsi yang tepat, views akan mengambil template berupa berkas html.
-    - Views juga akan menuliskan konten dari berkas html dengan data yang dibaca dari models. 
-    - Setelah selesai mengisi berkas html, views akan memberikan respons kepada client berupa berkas html yang sudah berisikan data yang sesuai request client.
+- Ketika request client ke web aplikasi masuk, request tersebut akan diterima oleh urls. 
+- Request yang diterima oleh urls akan diteruskan ke views. Pada views, akan ditentukan fungsi apa yang tepat untuk request dari client. 
+- Setelah ditemukan fungsi yang tepat, views akan mengambil template berupa berkas html.
+- Views juga akan menuliskan konten dari berkas html dengan data yang dibaca dari models. 
+- Setelah selesai mengisi berkas html, views akan memberikan respons kepada client berupa berkas html yang sudah berisikan data yang sesuai request client.
 
 
 4. Jelaskan peran settings.py dalam proyek Django!
