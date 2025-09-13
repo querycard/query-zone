@@ -26,4 +26,4 @@ class Product(models.Model):
     brand = models.CharField(max_length=255, default="Unknown")
 
     def __str__(self):
-        return self.title
+        return self.name
