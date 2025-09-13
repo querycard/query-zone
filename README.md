@@ -7,30 +7,24 @@
     - Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, seperti untuk mengirim data dari stack Frontend ke Backend, di sini JSON menjadi penghubung dari HTML (sebagai bahasa yang digunakan untuk Frontend) ke Django (sebagai bahasa yang digunakan untuk Backend) untuk mengirimkan data di antara dua stack berbed atersebut.
 
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
-    > Menurut saya lebih baik JSON. Karena JSON lebih mudah ditulis daripada XML karena tidak memerlukan end tag. JSON juga lebih mudah dibaca karena syntaxnya relatif lebih pendek daripada XML.
-
-    > Referensi: https://www.w3schools.com/js/js_json_xml.asp
+    - Menurut saya lebih baik JSON. Karena JSON lebih mudah ditulis daripada XML karena tidak memerlukan end tag. JSON juga lebih mudah dibaca karena syntaxnya relatif lebih pendek daripada XML.
+    - Referensi: https://www.w3schools.com/js/js_json_xml.asp
 
 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
-    > Fungsi dari method is_valid() pada form Django adalah untuk memberikan validasi terhadap data dari input user yang dikirim melalui form. Method ini dibutuhkan untuk memastikan bahwa input yang diberikan user pada field yang ada sesuai dengan data type yang sudah ditentukan sebelumnya. Sehingga, bisa mencegah error yang terjadi karena data type tidak valid. Lalu, supaya bisa memberikan feedback kepada user semisal input yang diberikan user tidak sesuai.
-
+    - Fungsi dari method is_valid() pada form Django adalah untuk memberikan validasi terhadap data dari input user yang dikirim melalui form. Method ini dibutuhkan untuk memastikan bahwa input yang diberikan user pada field yang ada sesuai dengan data type yang sudah ditentukan sebelumnya. Sehingga, bisa mencegah error yang terjadi karena data type tidak valid. Lalu, supaya bisa memberikan feedback kepada user semisal input yang diberikan user tidak sesuai.
 
 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
-    > Kita membutuhkan csrf_token saat membuat form di Django untuk mencegah serangan berbahaya.
-    
-    > Jika kita tidak menambahkan csrf_token pada form Django, web kita akan lebih rentan terhadap serangan CSRF. Karena kita menggunakan POST request pada form, jika kita tidak menggunakan csrf_token, Django akan menolak request post dan memberikan error 403 (Forbidden). Karena default-nya, Django memberikan proteksi terhadap CSRF di request POST. Lalu, jika tidak ada csrf_token, browser tidak bisa melakukan validasi pada request yang masuk, karena bisa saja request yang masuk berasal dari penyerang dan bukan dari usernya sendiri.
-
-    > Jika kita tidak menambahkan csrf_token pada form Django, penyerang dapat memberikan form palsu dan browser user dapat mengirimkannya seolah-olah request pengiriman dilakukan oleh user sendiri. Hal ini bisa berakibat pada terjadinya suatu aktivitas yang user sebetulnya tidak inginkan ataupun terkirimnya data-data privat user kepada penyerang.
-
-    > Referensi: https://www.geeksforgeeks.org/python/csrf-token-in-django/
+    - Kita membutuhkan csrf_token saat membuat form di Django untuk mencegah serangan berbahaya.
+    - Jika kita tidak menambahkan csrf_token pada form Django, web kita akan lebih rentan terhadap serangan CSRF. Karena kita menggunakan POST request pada form, jika kita tidak menggunakan csrf_token, Django akan menolak request post dan memberikan error 403 (Forbidden). Karena default-nya, Django memberikan proteksi terhadap CSRF di request POST. Lalu, jika tidak ada csrf_token, browser tidak bisa melakukan validasi pada request yang masuk, karena bisa saja request yang masuk berasal dari penyerang dan bukan dari usernya sendiri.
+    - Jika kita tidak menambahkan csrf_token pada form Django, penyerang dapat memberikan form palsu dan browser user dapat mengirimkannya seolah-olah request pengiriman dilakukan oleh user sendiri. Hal ini bisa berakibat pada terjadinya suatu aktivitas yang user sebetulnya tidak inginkan ataupun terkirimnya data-data privat user kepada penyerang.
+    - Referensi: https://www.geeksforgeeks.org/python/csrf-token-in-django/
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-
-    > a. Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
-    - Saya membuat fungsi bernama show_xml, show_xml_by_id, show_json, dan show_json_by_id. Untuk show_xml dan show_json akan menampilkan keseluruhan data product dalam format xml atau json. Sedangkan, untuk show_xml_by_id dan show_json_by_id akan menampilkan data satu product sesuai id pada url dalam format xml atau json.
-    > b. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 1. 
-        > Saya menambahkan url pada urlpatterns di file urls.py yang akan meneruskan request yang diterima dari user ke function di views.py yang sesuai.
-    c. Membuat halaman yang menampilkan data objek model yang memiliki tombol "Add" yang akan redirect ke halaman form, serta tombol "Detail" pada setiap data objek model yang akan menampilkan halaman detail objek.
+    - Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
+        - Saya membuat fungsi bernama show_xml, show_xml_by_id, show_json, dan show_json_by_id. Untuk show_xml dan show_json akan menampilkan keseluruhan data product dalam format xml atau json. Sedangkan, untuk show_xml_by_id dan show_json_by_id akan menampilkan data satu product sesuai id pada url dalam format xml atau json.
+    - Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 1. 
+        - Saya menambahkan url pada urlpatterns di file urls.py yang akan meneruskan request yang diterima dari user ke function di views.py yang sesuai.
+    - Membuat halaman yang menampilkan data objek model yang memiliki tombol "Add" yang akan redirect ke halaman form, serta tombol "Detail" pada setiap data objek model yang akan menampilkan halaman detail objek.
         - Saya membuat tombol add product serta detail pada file main.html. Nantinya di page tersebut akan ada dua tombol. 
         
         Yang pertama + Add Product, di mana user akan diteruskan ke halaman form untuk menambahkan produk. Tombol ini tersambung dengan file (create_product.html). Yang kedua Detail, di mana user bisa melihat detail dari produk yang tadi sudah ditambahkan. Tombol ini tersambung dengan file (product_detail.html).
