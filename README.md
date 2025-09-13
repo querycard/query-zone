@@ -80,7 +80,7 @@ Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, s
     g. Melakukan deployment ke PWS terhadap aplikasi yang sudah dibuat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
         - Saya melakukan proses migrasi kembali dengan makemigrations dan migrate karena terdapat model yang saya tambahkan.
         - Karena sebelumnya saya sudah melakukan proses deployment, ketika saya push perubahannya ke pws, maka sudah terlihat perubahan yang saya buat pada proyek saya.
-
+```
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 ```
