@@ -5,7 +5,7 @@
 
 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
 
-> Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, seperti untuk mengirim data dari stack Frontend ke Backend, di sini JSON menjadi penghubung dari HTML (sebagai bahasa yang digunakan untuk Frontend) ke Django (sebagai bahasa yang digunakan untuk Backend) untuk mengirimkan data di antara dua stack berbed atersebut.
+    > Supaya kita dapat mengirimkan data dari satu stack ke stack lainnya. Misalkan, seperti untuk mengirim data dari stack Frontend ke Backend, di sini JSON menjadi penghubung dari HTML (sebagai bahasa yang digunakan untuk Frontend) ke Django (sebagai bahasa yang digunakan untuk Backend) untuk mengirimkan data di antara dua stack berbed atersebut.
 
 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
 ```
