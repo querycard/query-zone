@@ -13,6 +13,10 @@ class Product(models.Model):
                         ('accessory', 'Accessory'),
                         ('ball', 'Ball'),
                         ('exclusive', 'Exclusive'),] 
+    
+    GENDER_CHOICES = [('female', 'Female'),
+                      ('male', 'Male'),
+                      ('unisex', 'Unisex')]
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=255)
@@ -24,6 +28,7 @@ class Product(models.Model):
     stock = models.IntegerField(default=0)
     bonus_points = models.IntegerField(default=0)
     brand = models.CharField(max_length=255, default="Unknown")
+    gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default="Unisex")
 
     def __str__(self):
-        return self.title
+        return self.name
