@@ -36,6 +36,10 @@
     - Tidak ada.
 
 7. Mengakses keempat URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+<img width="1920" height="1080" alt="Screenshot 2025-09-13 221056" src="https://github.com/user-attachments/assets/dfbb35e2-5387-407e-8cb8-f0364da927fe" />
+<img width="1920" height="1080" alt="Screenshot 2025-09-13 221043" src="https://github.com/user-attachments/assets/f4321c37-e0f9-4f9a-9943-71c8b906c790" />
+<img width="1920" height="1080" alt="Screenshot 2025-09-13 221000" src="https://github.com/user-attachments/assets/9548f148-003c-4910-9a68-d90480393dc5" />
+<img width="1920" height="1080" alt="Screenshot 2025-09-13 220930" src="https://github.com/user-attachments/assets/b73fb5b3-e994-4478-a8e8-b462a1e45a92" />
 
 
 
