@@ -28,7 +28,7 @@
         - Saya membuat tombol add product serta detail pada file main.html. Nantinya di page tersebut akan ada dua tombol. 
         - Yang pertama + Add Product, di mana user akan diteruskan ke halaman form untuk menambahkan produk. Tombol ini tersambung dengan file (create_product.html). Yang kedua Detail, di mana user bisa melihat detail dari produk yang tadi sudah ditambahkan. Tombol ini tersambung dengan file (product_detail.html).
     - Membuat halaman form untuk menambahkan objek model pada app sebelumnya.
-        - Halaman form akan terbuka jika user men-klik tombol add product di landing page. Atribut yang dimiliki oleh produk saya yang dapat dikustomisasi oleh user pada halaman form adalah nama, brand, price. description, thumbnail, category, is_featured, stock, dan bonus_points.
+        - Halaman form akan terbuka jika user men-klik tombol add product di landing page. Atribut yang dimiliki oleh produk saya yang dapat dikustomisasi oleh user pada halaman form adalah nama, brand, price. description, thumbnail, category, is_featured, stock, gender, dan bonus_points.
     - Membuat halaman yang menampilkan detail dari setiap data objek model.
         - Saat user sudah submit form untuk add product, produk akan muncul di landing page beserta tombol detail. Jika tombol detail diklik, user dapat melihat detail dari produk tersebut. Atribut yang terlihat pada halaman detail produk adalah nama, kategori, keterangan featured, brand, thumbnail, deskripsi, stok, dan bonus points.
 

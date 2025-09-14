@@ -37,3 +37,7 @@ class Product(models.Model):
     @property
     def is_product_hot(self):
         return self.product_views > 20
+    
+    def increment_views(self):
+        self.product_views += 1
+        self.save()

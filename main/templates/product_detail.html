@@ -6,6 +6,7 @@
 <p>
     <b>{{ product.get_category_display }}</b>
     {% if product.is_featured %} | <b>Featured</b>{% endif %}
+    {% if product.is_product_hot %} | <b>Hot</b>{% endif %} |
     | <b>{{ product.brand }}</b>
 </p>
 
