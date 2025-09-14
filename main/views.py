@@ -7,7 +7,6 @@ from django.core import serializers
 # Create your views here.
 
 def show_main(request):
-
     product_list = Product.objects.all()
 
     context = {

@@ -29,6 +29,11 @@ class Product(models.Model):
     bonus_points = models.IntegerField(default=0)
     brand = models.CharField(max_length=255, default="Unknown")
     gender = models.CharField(max_length=20, choices=GENDER_CHOICES, default="Unisex")
+    product_views = models.PositiveIntegerField(default=0)
 
     def __str__(self):
         return self.name
+
+    @property
+    def is_product_hot(self):
+        return self.product_views > 20
