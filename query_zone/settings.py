@@ -77,6 +77,7 @@ TEMPLATES = [
     },
 ]
 
+# biar ada perubahan
 WSGI_APPLICATION = 'query_zone.wsgi.application'
 
 
