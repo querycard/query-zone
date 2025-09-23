@@ -22,7 +22,8 @@
         - Untuk proses login, saya membuat fungsi login_user pada views.py dan membuat file login.html. Setelahnya saya menambahkan routing kepada fungsi login pada urls.py. Saya juga menambahkan dekorator @login_required pada fungsi show_main dan show_news sehingga fungsi tsb hanya dapat diakses ketika user sudah login.
         - Untuk proses logout, saya membuat fungsi logout_user pada views.py dan menambahkan button Log Out pada main.html yang tersambung dengan fungsi logout_user pada views.py. Setelahnya saya menambahkan routing kepada fungsi logout pada urls.py.
     - Membuat dua (2) akun pengguna dengan masing-masing tiga (3) dummy data menggunakan model yang telah dibuat sebelumnya untuk setiap akun di lokal.
-        - 
+        - <img width="523" height="658" alt="Screenshot 2025-09-23 103431" src="https://github.com/user-attachments/assets/3fa2e533-aae8-4b1d-ac85-737948ad88e5" />
+        - <img width="642" height="672" alt="Screenshot 2025-09-23 103535" src="https://github.com/user-attachments/assets/03838389-63fd-4cbd-8420-5a2bcbeb75c9" />
     - Menghubungkan model Product dengan User.
         - Saya menambahkan import user pada file models.py. Kemudian, saya menambahkan user = models.ForeignKey(User, on_delete=models.CASCADE, null=True) pada atribut class Product untuk membuat sebuah relationshop antara satu product dan satu user. Setelah itu saya membuat migration agar perubahan pada model tersimpan di database.
         - Saya juga menambahkan field user pada product yang akan dibuat user, yang nantinya akan berisi akun user yang sedang login saat pembuatan product berlangsung.
