@@ -12,11 +12,26 @@
 <h5>Class:</h5>
 <p>{{ class }}</p>
 
+
+
 <a href="{% url 'main:create_product' %}">
   <button>+ Add Product</button>
 </a>
 
+<a href="{% url 'main:logout' %}">
+  <button>Logout</button>
+</a>
+
+<h5>Sesi terakhir login: {{ last_login }}</h5>
+
 <hr>
+
+<a href="?filter=all">
+    <button type="button">All Products</button>
+</a>
+<a href="?filter=my">
+    <button type="button">My Products</button>
+</a> 
 
 {% if not product_list %}
 <p>Belum ada data produk pada Query Zone.</p>
@@ -41,6 +56,32 @@
 
 <hr>
 {% endfor %}
+
+
+<!-- 
+DEMO TUGAS 3
+<h2> Limited Items </h2>
+
+{% for items in limited_items %}
+<div>
+  <h2><a href="{% url 'main:show_product' items.id %}">{{ items.name }}</a></h2>
+
+  <p><b>{{ items.category }}</b>{% if items.is_featured %} | 
+    <b>Featured</b>{% endif %}</p>
+
+  {% if items.thumbnail %}
+  <img src="{{ items.thumbnail }}" alt="thumbnail" width="150" height="100">
+  <br />
+  {% endif %}
+
+  <p>{{ items.description|truncatewords:25 }}...</p>
+
+  <p><a href="{% url 'main:show_product' items.id %}"><button>Detail</button></a></p>
+</div>
+<br>
+{% endfor %} -->
+
+
 
 {% endif %}
  {% endblock content %}

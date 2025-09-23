@@ -1,10 +1,12 @@
 import uuid
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
 
 class Product(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
 
     CATEGORY_CHOICES = [('shoes', 'Shoes'),
                         ('jersey', 'Jersey'),
@@ -41,3 +43,10 @@ class Product(models.Model):
     def increment_views(self):
         self.product_views += 1
         self.save()
+
+    # buat model baru bernama employee -> name (tdk boleh > 255), age (bilangan bulat), persona (text panjang tanpa batas, gaboleh charfield)
+
+class Employee(models.Model):
+    name = models.CharField(max_length=255)
+    age = models.IntegerField()
+    persona = models.TextField()

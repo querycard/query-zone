@@ -24,4 +24,10 @@
 <p>Gender : {{product.gender}}</p>
 <p>Bonus Points : {{product.bonus_points}}</p>
 
+{% if news.user %}
+    <p>Author: {{ news.user.username }}</p>
+{% else %}
+    <p>Author: Anonymous</p>
+{% endif %}
+
 {% endblock content %}
