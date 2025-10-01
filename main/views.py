@@ -16,7 +16,7 @@ from django.core import serializers
 @login_required(login_url='/login')
 def show_main(request):
     filter_type = request.GET.get("filter", "all")
-    limited_items = Product.objects.filter(stock__lt=5).values()
+    # limited_items = Product.objects.filter(stock__lt=5).values()
 
     if filter_type == "all":
         product_list = Product.objects.all()
@@ -29,7 +29,7 @@ def show_main(request):
         'class': 'PBP F',
         'product_list' : product_list,
         'last_login': request.COOKIES.get('last_login', 'Never'),
-        'limited_items': limited_items
+        # 'limited_items': limited_items
     }
 
     return render(request, "main.html", context)
@@ -116,3 +116,21 @@ def logout_user(request):
     response = HttpResponseRedirect(reverse('main:login'))
     response.delete_cookie('last_login')
     return response
+
+def edit_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    form = ProductForm(request.POST or None, instance=product)
+    if form.is_valid() and request.method == 'POST':
+        form.save()
+        return redirect('main:show_main')
+
+    context = {
+        'form': form
+    }
+
+    return render(request, "edit_product.html", context)
+
+def delete_product(request, id):
+    product = get_object_or_404(Product, pk=id)
+    product.delete()
+    return HttpResponseRedirect(reverse('main:show_main'))

@@ -1,5 +1,38 @@
 (https://khansa-dinda-queryzone.pbp.cs.ui.ac.id/)
 
+# Tugas 5
+
+1. Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+    - Prioritas akan diurutkan berdasarkan tingkat kekhususan (specificity) dan urutan deklarasi. Jadi prioritas untuk CSS selector dapat diringkas menjadi inline > id > class/attribute/pseudo-class > element. Jika ada specificity sama, maka aturan yang ditulis terakhir di CSS akan dipakai (last rule wins).
+2. Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design, serta jelaskan mengapa!
+    - Karena responsive design dapat menyesuaikan tampilan sesuai dengan spesifikasi device yang membuka website tersebut. Sehingga, tampilan website dapat tetap user-friendly meskipun dibuka di device yang berbeda-beda.
+    - Contoh aplikasi yang sudah menerapkan responsive design: instagram web, website pbp, youtube
+    -  Contoh aplikasi yang belum menerapkan responsive design: https://dequeuniversity.com/library/responsive/1-non-responsive, https://thebiguglywebsite.com/, serta web lama dari sebuah instansi.
+3. Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+    - Margin adalah spacing di luar elemen. Border adalah garis batas di sekitar elemen. Padding adalah spacing di dalam elemen.
+    - contoh penggunaan:
+    ```
+    div {
+        margin: 20px;   /* jarak dari elemen lain */
+        border: 2px solid black; /* garis di sekeliling box */
+        padding: 15px;  /* ruang antara teks dan border */
+    }
+    ```
+4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+    - Flex box digunakan untuk mengatur elemen dalam satu dimensi (horizontal/vertikal). Flex box biasanya digunakan untuk elemen yang memiliki layout sederhana seperti navigation bar.
+    - Grid layout digunakan untuk mengatur elemen dalam dua dimensi (baris dan kolom). Grid layout biasanya digunakan untuk layout yang lebih kompleks seperti dashboard atau landing page.
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+    -  Implementasikan fungsi untuk menghapus dan mengedit product
+        - Saya membuat fungsi edit_product dan delete_product pada views.py dan menambahkan routingnya pada urls.py. Pada edit_product, kurang lebih prosesnya mirip dengan create_product tetapi bedanya edit_product hanya men-save perubahan dan tidak membuat product baru. Pada delete_product, saya menggunakan fungsi delete yang sudah tersedia pada python.
+    - Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
+        - Kustomisasi halaman login, register, tambah product, edit product, dan detail product semenarik mungkin.
+        - Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:
+            - Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.
+            - Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).
+        - Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
+        - Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+
+
 # Tugas 4
 
 1. Apa itu Django AuthenticationForm? Jelaskan juga kelebihan dan kekurangannya.
