@@ -7,40 +7,41 @@
 
 {% block content %}
 {% include 'navbar.html' %}
-<div class="bg-gray-50 w-full pt-16 min-h-screen">
+
+<div class="bg-[#31332E] w-full pt-16 min-h-screen text-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- Header Section -->
     <div class="mb-8">
-      <h1 class="text-3xl font-bold text-gray-900 mb-2">Latest Products</h1>
-      <p class="text-gray-600">Come and grab our exclusive merch!</p>
+      <h1 class="text-3xl font-bold text-white mb-2">Latest Products</h1>
+      <p class="text-gray-300">Come and grab our exclusive merch!</p>
     </div>
 
-    <!-- Filter Section -->
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 bg-white rounded-lg border border-gray-200 p-4">
+    <!-- Filter + Create Button -->
+    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8 border border-[color:transparent] rounded-lg bg-[#2C2E2A] p-4"
+         style="border-image: linear-gradient(90deg, #5D753E, #B1CC8F, #A0B981, #6F8C4A) 1;">
       <div class="flex space-x-3 mb-4 sm:mb-0">
-        <a href="?" class="{% if request.GET.filter == 'all' or not request.GET.filter  %} bg-lime-800 text-white{% else %}bg-white text-gray-700 border border-gray-300{% endif %} px-4 py-2 rounded-md font-medium transition-colors hover:bg-rose-950 hover:text-white">
+        <a href="?" class="{% if request.GET.filter == 'all' or not request.GET.filter  %} bg-lime-700 text-white{% else %}bg-[#2C2E2A] text-gray-200 border border-gray-600{% endif %} px-4 py-2 rounded-md font-medium transition-colors hover:bg-rose-950 hover:text-white">
           All Products
         </a>
-        <a href="?filter=my" class="{% if request.GET.filter == 'my' %} bg-lime-800 text-white{% else %}bg-white text-gray-700 border border-gray-300{% endif %} px-4 py-2 rounded-md font-medium transition-colors hover:bg-rose-950 hover:text-white">
+        <a href="?filter=my" class="{% if request.GET.filter == 'my' %} bg-lime-700 text-white{% else %}bg-[#2C2E2A] text-gray-200 border border-gray-600{% endif %} px-4 py-2 rounded-md font-medium transition-colors hover:bg-rose-950 hover:text-white">
           My Products
         </a>
       </div>
-      {% if user.is_authenticated %}
-        <div class="text-sm text-gray-500">
-          Last login: {{ last_login }}
-        </div>
-      {% endif %}
+      <a href="{% url 'main:create_product' %}" class="inline-flex items-center px-4 py-2 bg-lime-700 text-white rounded-md hover:bg-lime-800 transition-colors">
+        + Create Product
+      </a>
     </div>
 
     <!-- Product Grid -->
     {% if not product_list %}
-      <div class="bg-white rounded-lg border border-gray-200 p-12 text-center">
+      <div class="bg-[#2C2E2A] border border-[color:transparent] rounded-lg p-12 text-center"
+           style="border-image: linear-gradient(90deg, #5D753E, #B1CC8F, #A0B981, #6F8C4A) 1;">
         <div class="w-32 h-32 mx-auto mb-4">
           <img src="{% static 'image/no-product.png' %}" alt="No product available" class="w-full h-full object-contain">
         </div>
-        <h3 class="text-lg font-medium text-gray-900 mb-2">No product found</h3>
-        <p class="text-gray-500 mb-6">The most trusted football shop you will ever find.</p>
+        <h3 class="text-lg font-medium text-white mb-2">No product found</h3>
+        <p class="text-gray-400 mb-6">The most trusted football shop you will ever find.</p>
         <a href="{% url 'main:create_product' %}" class="inline-flex items-center px-4 py-2 bg-rose-950 text-white rounded-md hover:bg-lime-700 transition-colors">
           Create Product
         </a>

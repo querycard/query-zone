@@ -6,45 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% block meta %} {% endblock meta %}
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              darkbg: '#31332E',
-              brand: '#6F8C4A',
-            }
-          }
-        },
-        plugins: [
-          function ({ addUtilities }) {
-            addUtilities({
-              ".card-dark": {
-                "background-color": "#31332E",
-                "color": "#f9fafb",
-                "border-radius": "0.5rem",
-                "padding": "1.5rem",
-              },
-              ".input-dark": {
-                "background-color": "#1f1f1d",
-                "border": "1px solid #4b5563",
-                "color": "#f9fafb",
-              },
-              ".input-dark:focus": {
-                "border-color": "#5e1741",
-                "box-shadow": "0 0 0 2px rgba(94, 23, 65, 0.4)"
-              }
-            })
-          }
-        ]
-      }
-    </script>
-
     <link rel="stylesheet" href="{% static 'css/global.css' %}"/>
   </head>
-  <body>
-    {% block content %} {% endblock content %}
+  <body class="bg-[#31332E] text-white">
+  {% block content %}{% endblock content %}
   </body>
 </html>

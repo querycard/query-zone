@@ -1,97 +1,123 @@
-<nav class="fixed top-0 left-0 w-full bg-white border-b border-gray-200 shadow-sm z-50">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex items-center justify-between h-16">
-        <div class="flex items-center">
-          <h1 class="text-xl font-semibold text-gray-900">
-            <span class="text-green-600">Query</span> Zone
-          </h1>
-        </div>
-        
-        <!-- Desktop Navigation -->
-        <div class="hidden md:flex items-center space-x-8">
-          <a href="/" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">
-            Home
-          </a>
-          <a href="{% url 'main:create_product' %}" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">
-            Create Product
-          </a>
-        </div>
-        
-        <!-- Desktop User Section -->
-        <div class="hidden md:flex items-center space-x-6">
-          {% if user.is_authenticated %}
-            <div class="text-right">
-              <div class="text-sm font-medium text-gray-900">{{ name|default:user.username }}</div>
-              <div class="text-xs text-gray-500">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
-            </div>
-            <a href="{% url 'main:logout' %}" class="text-red-600 hover:text-red-700 font-medium transition-colors">
-              Logout
-            </a>
-          {% else %}
-            <a href="{% url 'main:login' %}" class="text-gray-600 hover:text-gray-900 font-medium transition-colors">
-              Login
-            </a>
-            <a href="{% url 'main:register' %}" class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded font-medium transition-colors">
-              Register
-            </a>
-          {% endif %}
-        </div>
-        
-        <!-- Mobile Menu Button -->
-        <div class="md:hidden flex items-center">
-          <button class="mobile-menu-button p-2 text-gray-600 hover:text-gray-900 transition-colors">
-            <span class="sr-only">Open menu</span>
-            <div class="w-6 h-6 flex flex-col justify-center items-center">
-              <span class="bg-current block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"></span>
-              <span class="bg-current block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-0.5"></span>
-              <span class="bg-current block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"></span>
-            </div>
+<nav class="fixed top-0 left-0 w-full bg-[#31332E] border-b border-gray-700 shadow z-50">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+      
+      <!-- Logo -->
+      <div class="flex items-center">
+        <h1 class="text-xl font-semibold text-white">
+          <span class="text-lime-400">Query</span> Zone
+        </h1>
+      </div>
+
+      <!-- Desktop Menu -->
+      <div class="hidden md:flex items-center space-x-8">
+        <!-- Categories Dropdown -->
+        <div class="relative group">
+          <button class="text-white font-medium hover:text-lime-400 transition">
+            Categories
           </button>
+          <div class="absolute hidden group-hover:block bg-[#2C2E2A] text-white shadow-lg mt-2 rounded border border-gray-700 w-40 z-50">
+            <a href="/?category=shoes" class="block px-4 py-2 hover:bg-lime-600">Shoes</a>
+            <a href="/?category=jersey" class="block px-4 py-2 hover:bg-lime-600">Jersey</a>
+            <a href="/?category=shorts" class="block px-4 py-2 hover:bg-lime-600">Shorts</a>
+            <a href="/?category=jacket" class="block px-4 py-2 hover:bg-lime-600">Jacket</a>
+            <a href="/?category=accessory" class="block px-4 py-2 hover:bg-lime-600">Accessory</a>
+            <a href="/?category=ball" class="block px-4 py-2 hover:bg-lime-600">Ball</a>
+            <a href="/?category=exclusive" class="block px-4 py-2 hover:bg-lime-600">Exclusive</a>
+          </div>
         </div>
       </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div class="mobile-menu hidden md:hidden bg-white border-t border-gray-200">
-      <div class="px-6 py-4 space-y-4">
-        <!-- Mobile Navigation Links -->
-        <div class="space-y-1">
-          <a href="/" class="block text-gray-600 hover:text-gray-900 font-medium py-3 transition-colors">
-            Home
+
+      <!-- User Info -->
+      <div class="hidden md:flex items-center space-x-6">
+        {% if user.is_authenticated %}
+          <div class="text-right">
+            <div class="text-sm font-medium text-white">{{ name|default:user.username }}</div>
+            <div class="text-xs text-gray-400">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
+          </div>
+          <a href="{% url 'main:logout' %}" class="text-red-400 hover:text-red-500 font-medium transition">
+            Logout
           </a>
-          <a href="{% url 'main:create_product' %}" class="block text-gray-600 hover:text-gray-900 font-medium py-3 transition-colors">
-            Create Product
+        {% else %}
+          <a href="{% url 'main:login' %}" class="text-white hover:text-lime-400 font-medium transition">
+            Login
           </a>
-        </div>
-        
-        <!-- Mobile User Section -->
-        <div class="border-t border-gray-200 pt-4">
-          {% if user.is_authenticated %}
-            <div class="mb-4">
-              <div class="font-medium text-gray-900">{{ name|default:user.username }}</div>
-              <div class="text-sm text-gray-500">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
-            </div>
-            <a href="{% url 'main:logout' %}" class="block text-red-600 hover:text-red-700 font-medium py-3 transition-colors">
-              Logout
-            </a>
-          {% else %}
-            <div class="space-y-3">
-              <a href="{% url 'main:login' %}" class="block text-gray-600 hover:text-gray-900 font-medium py-3 transition-colors">
-                Login
-              </a>
-              <a href="{% url 'main:register' %}" class="block bg-green-600 hover:bg-green-700 text-white font-medium py-3 px-4 rounded text-center transition-colors">
-                Register
-              </a>
-            </div>
-          {% endif %}
-        </div>
+          <a href="{% url 'main:register' %}" class="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded font-medium transition">
+            Register
+          </a>
+        {% endif %}
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden flex items-center">
+        <button class="mobile-menu-button p-2 text-white hover:text-lime-400 transition">
+          <span class="sr-only">Open menu</span>
+          <div class="w-6 h-6 flex flex-col justify-center items-center">
+            <span class="bg-current block h-0.5 w-6 rounded-sm mb-1"></span>
+            <span class="bg-current block h-0.5 w-6 rounded-sm mb-1"></span>
+            <span class="bg-current block h-0.5 w-6 rounded-sm"></span>
+          </div>
+        </button>
       </div>
     </div>
-    <script>
-      const btn = document.querySelector("button.mobile-menu-button");
-      const menu = document.querySelector(".mobile-menu");
-    
-      btn.addEventListener("click", () => {
-        menu.classList.toggle("hidden");
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden md:hidden bg-[#2C2E2A] border-t border-gray-700 text-white">
+    <div class="px-6 py-4 space-y-4">
+
+      <!-- Categories Dropdown -->
+      <div class="border-t border-gray-700 pt-4">
+        <button id="mobile-category-toggle" class="w-full text-left text-white font-medium py-2">
+          Categories
+        </button>
+        <div id="mobile-category-menu" class="hidden pl-4 mt-2 space-y-1">
+          <a href="/?category=shoes" class="block py-1 text-sm hover:text-lime-400">Shoes</a>
+          <a href="/?category=jersey" class="block py-1 text-sm hover:text-lime-400">Jersey</a>
+          <a href="/?category=shorts" class="block py-1 text-sm hover:text-lime-400">Shorts</a>
+          <a href="/?category=jacket" class="block py-1 text-sm hover:text-lime-400">Jacket</a>
+          <a href="/?category=accessory" class="block py-1 text-sm hover:text-lime-400">Accessory</a>
+          <a href="/?category=ball" class="block py-1 text-sm hover:text-lime-400">Ball</a>
+          <a href="/?category=exclusive" class="block py-1 text-sm hover:text-lime-400">Exclusive</a>
+        </div>
+      </div>
+
+      <!-- Mobile User Section -->
+      <div class="border-t border-gray-700 pt-4">
+        {% if user.is_authenticated %}
+          <div class="mb-4">
+            <div class="font-medium text-white">{{ name|default:user.username }}</div>
+            <div class="text-sm text-gray-400">{{ npm|default:"Student" }} - {{ class|default:"Class" }}</div>
+          </div>
+          <a href="{% url 'main:logout' %}" class="block text-red-400 hover:text-red-500 font-medium py-3 transition">
+            Logout
+          </a>
+        {% else %}
+          <a href="{% url 'main:login' %}" class="block text-white hover:text-lime-400 font-medium py-3 transition">
+            Login
+          </a>
+          <a href="{% url 'main:register' %}" class="block bg-lime-600 hover:bg-lime-700 text-white font-medium py-3 px-4 rounded text-center transition">
+            Register
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Script -->
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+    const categoryToggle = document.getElementById("mobile-category-toggle");
+    const categoryMenu = document.getElementById("mobile-category-menu");
+    if (categoryToggle) {
+      categoryToggle.addEventListener("click", () => {
+        categoryMenu.classList.toggle("hidden");
       });
-    </script>
-  </nav>
+    }
+  </script>
+</nav>
