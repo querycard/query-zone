@@ -13,9 +13,9 @@
     - contoh penggunaan:
     ```
     div {
-        margin: 20px;   /* jarak dari elemen lain */
-        border: 2px solid black; /* garis di sekeliling box */
-        padding: 15px;  /* ruang antara teks dan border */
+        margin: 24px;
+        border: 4px solid black; 
+        padding: 20px; 
     }
     ```
 4. Jelaskan konsep flex box dan grid layout beserta kegunaannya!
@@ -26,11 +26,16 @@
         - Saya membuat fungsi edit_product dan delete_product pada views.py dan menambahkan routingnya pada urls.py. Pada edit_product, kurang lebih prosesnya mirip dengan create_product tetapi bedanya edit_product hanya men-save perubahan dan tidak membuat product baru. Pada delete_product, saya menggunakan fungsi delete yang sudah tersedia pada python.
     - Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma) dengan ketentuan sebagai berikut:
         - Kustomisasi halaman login, register, tambah product, edit product, dan detail product semenarik mungkin.
+            - Untuk bagian ini, saya melakukan styling pada semua halaman form menggunakan framework Tailwind CSS agar tampilan lebih clean dan responsif. Saya menambahkan elemen-elemen visual seperti card container, warna-warna yang lebih nyaman dilihat, serta menyesuaikan spacing, font, dan tombol supaya tampilannya tidak polos. Halaman detail produk juga saya desain ulang supaya informasi produk lebih terstruktur dan enak dibaca.
         - Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:
             - Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.
+                - Saya menambahkan kondisi di template untuk mengecek apakah list produk kosong. Jika iya, maka akan ditampilkan ilustrasi gambar kosong beserta pesan teks bahwa belum ada produk yang tersedia.
             - Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).
+                - Kalau sudah ada data produk, masing-masing produk akan ditampilkan dalam bentuk card dengan desain yang menarik. Informasi yang ditampilkan meliputi nama produk, gambar, harga, dan dua tombol aksi (edit dan delete).
         - Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
+            - Setiap card produk dilengkapi dengan dua tombol: satu untuk mengedit dan satu lagi untuk menghapus. Tombol edit akan mengarahkan user ke halaman edit produk, sementara tombol delete akan menghapus produk dari database. Posisi tombol diletakkan di bagian bawah card dan diberi warna berbeda agar fungsinya mudah dibedakan.
         - Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+            - Saya menambahkan navigation bar di semua halaman utama aplikasi. Navbar ini berisi tautan ke halaman penting seperti daftar produk, tambah produk, dan logout. Menggunakan Tailwind, navbar dibuat responsif sehingga akan berubah menjadi hamburger menu saat dibuka di perangkat mobile, dan ditampilkan penuh saat dibuka di desktop.
 
 
 # Tugas 4
