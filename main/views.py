@@ -66,7 +66,16 @@ def show_xml(request):
     return HttpResponse(xml_data, description_type="application/xml")
 
 def show_json(request):
+    category = request.GET.get('category')
+    filter_type = request.GET.get('filter')  # "all" / "my"
     product_list = Product.objects.all()
+
+    if category:
+        product_list = product_list.filter(category=category)
+
+    if filter_type == "my" and request.user.is_authenticated:
+        product_list = product_list.filter(user=request.user)
+
     data = [
         {
             'id': str(product.id),
@@ -77,15 +86,17 @@ def show_json(request):
             'product_views': product.product_views,
             'created_at': product.created_at.isoformat() if product.created_at else None,
             'is_featured': product.is_featured,
-            'bonus_points' : product.bonus_points,
-            'stock' : product.stock,
-            'brand' : product.brand,
-            'gender' : product.gender,
+            'bonus_points': product.bonus_points,
+            'stock': product.stock,
+            'brand': product.brand,
+            'gender': product.gender,
+            'user_id': product.user_id,
         }
         for product in product_list
     ]
 
     return JsonResponse(data, safe=False)
+
 
 def show_xml_by_id(request, product_id):
     try:
@@ -94,14 +105,6 @@ def show_xml_by_id(request, product_id):
         return HttpResponse(xml_data, description_type="application/xml")
     except Product.DoesNotExist:
         return HttpResponse(status=404)
-
-# def show_json_by_id(request, product_id):
-#     try:
-#         product_list = Product.objects.get(pk=product_id)
-#         json_data = serializers.serialize("json", [product_list])
-#         return HttpResponse(json_data, description_type="application/json")
-#     except Product.DoesNotExist:
-#         return HttpResponse(status=404)
     
 def show_json_by_id(request, product_id):
     try:

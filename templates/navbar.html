@@ -1,31 +1,11 @@
-<nav class="fixed top-0 left-0 w-full bg-[#31332E] border-b border-gray-700 shadow z-50">
+<nav class="fixed top-0 left-0 w-full bg-[#151513] border-b border-gray-700 shadow z-50">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
     <div class="flex items-center justify-between h-16">
-      
       <!-- Logo -->
       <div class="flex items-center">
         <h1 class="text-xl font-semibold text-white">
           <span class="text-lime-400">Query</span> Zone
         </h1>
-      </div>
-
-      <!-- Desktop Menu -->
-      <div class="hidden md:flex items-center space-x-8">
-        <!-- Categories Dropdown -->
-        <div class="relative group">
-          <button class="text-white font-medium hover:text-lime-400 transition">
-            Categories
-          </button>
-          <div class="absolute hidden group-hover:block bg-[#2C2E2A] text-white shadow-lg mt-2 rounded border border-gray-700 w-40 z-50">
-            <a href="/?category=shoes" class="block px-4 py-2 hover:bg-lime-600">Shoes</a>
-            <a href="/?category=jersey" class="block px-4 py-2 hover:bg-lime-600">Jersey</a>
-            <a href="/?category=shorts" class="block px-4 py-2 hover:bg-lime-600">Shorts</a>
-            <a href="/?category=jacket" class="block px-4 py-2 hover:bg-lime-600">Jacket</a>
-            <a href="/?category=accessory" class="block px-4 py-2 hover:bg-lime-600">Accessory</a>
-            <a href="/?category=ball" class="block px-4 py-2 hover:bg-lime-600">Ball</a>
-            <a href="/?category=exclusive" class="block px-4 py-2 hover:bg-lime-600">Exclusive</a>
-          </div>
-        </div>
       </div>
 
       <!-- User Info -->
@@ -42,7 +22,7 @@
           <a href="{% url 'main:login' %}" class="text-white hover:text-lime-400 font-medium transition">
             Login
           </a>
-          <a href="{% url 'main:register' %}" class="bg-lime-600 hover:bg-lime-700 text-white px-4 py-2 rounded font-medium transition">
+          <a href="{% url 'main:register' %}" class="bg-[#2C2E2A] hover:bg-[#1d1d1b] text-white px-4 py-2 border border-gray-600 rounded-xl font-medium transition">
             Register
           </a>
         {% endif %}
@@ -62,27 +42,25 @@
     </div>
   </div>
 
-  <!-- Mobile Menu -->
-  <div class="mobile-menu hidden md:hidden bg-[#2C2E2A] border-t border-gray-700 text-white">
-    <div class="px-6 py-4 space-y-4">
-
-      <!-- Categories Dropdown -->
-      <div class="border-t border-gray-700 pt-4">
-        <button id="mobile-category-toggle" class="w-full text-left text-white font-medium py-2">
-          Categories
+  <!-- Kategori Horizontal (Desktop & Mobile) -->
+  <div class="bg-[#151513] border-t border-gray-700 px-6 py-3">
+    <div class="flex flex-wrap gap-2 justify-start">
+      {% for category in category %}
+        <button
+          type="button"
+          data-category="{{ category }}"
+          class="category-btn px-3 py-1 rounded-xl border border-gray-600 bg-[#2C2E2A] text-white text-sm font-medium hover:bg-[#1d1d1b] capitalize transition"
+        >
+          {{ category }}
         </button>
-        <div id="mobile-category-menu" class="hidden pl-4 mt-2 space-y-1">
-          <a href="/?category=shoes" class="block py-1 text-sm hover:text-lime-400">Shoes</a>
-          <a href="/?category=jersey" class="block py-1 text-sm hover:text-lime-400">Jersey</a>
-          <a href="/?category=shorts" class="block py-1 text-sm hover:text-lime-400">Shorts</a>
-          <a href="/?category=jacket" class="block py-1 text-sm hover:text-lime-400">Jacket</a>
-          <a href="/?category=accessory" class="block py-1 text-sm hover:text-lime-400">Accessory</a>
-          <a href="/?category=ball" class="block py-1 text-sm hover:text-lime-400">Ball</a>
-          <a href="/?category=exclusive" class="block py-1 text-sm hover:text-lime-400">Exclusive</a>
-        </div>
-      </div>
+      {% endfor %}
+    </div>
+  </div>
 
-      <!-- Mobile User Section -->
+  <!-- Mobile Menu -->
+  <div class="mobile-menu hidden md:hidden bg-[#151513] border-t border-gray-700 text-white">
+    <div class="px-6 py-4 space-y-4">
+      <!-- Mobile User Info -->
       <div class="border-t border-gray-700 pt-4">
         {% if user.is_authenticated %}
           <div class="mb-4">
@@ -96,7 +74,7 @@
           <a href="{% url 'main:login' %}" class="block text-white hover:text-lime-400 font-medium py-3 transition">
             Login
           </a>
-          <a href="{% url 'main:register' %}" class="block bg-lime-600 hover:bg-lime-700 text-white font-medium py-3 px-4 rounded text-center transition">
+          <a href="{% url 'main:register' %}" class="block bg-[#2C2E2A] hover:bg-[#1d1d1b] text-white font-medium py-3 px-4 border border-gray-600 rounded-xl text-center transition">
             Register
           </a>
         {% endif %}
@@ -104,20 +82,65 @@
     </div>
   </div>
 
-  <!-- Script -->
+  <!-- SCRIPT -->
   <script>
     const btn = document.querySelector("button.mobile-menu-button");
     const menu = document.querySelector(".mobile-menu");
+
     btn.addEventListener("click", () => {
       menu.classList.toggle("hidden");
     });
 
-    const categoryToggle = document.getElementById("mobile-category-toggle");
-    const categoryMenu = document.getElementById("mobile-category-menu");
-    if (categoryToggle) {
-      categoryToggle.addEventListener("click", () => {
-        categoryMenu.classList.toggle("hidden");
+    // === CATEGORY FILTER (AJAX) ===
+    function getCategoryFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('category') || '';
+    }
+
+    function updateURL(category) {
+      const params = new URLSearchParams(window.location.search);
+      if (category) {
+        params.set('category', category);
+      } else {
+        params.delete('category');
+      }
+      const newUrl = `${window.location.pathname}?${params.toString()}`;
+      history.pushState({}, '', newUrl);
+    }
+
+    function updateActiveCategoryButtons() {
+      const selected = getCategoryFromURL();
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        const cat = btn.dataset.category;
+        if (cat === selected) {
+          btn.classList.remove('bg-[#2C2E2A]');
+          btn.classList.add('bg-[#3D4D29]');
+        } else {
+          btn.classList.remove('bg-[#3D4D29]');
+          btn.classList.add('bg-[#2C2E2A]');
+        }
       });
     }
+
+    function initCategoryFilterButtons() {
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const category = btn.dataset.category;
+          updateURL(category);
+          updateActiveCategoryButtons();
+          fetchProductData(); // Panggil AJAX untuk render produk
+        });
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initCategoryFilterButtons();
+      updateActiveCategoryButtons();
+    });
+
+    window.addEventListener('popstate', () => {
+      updateActiveCategoryButtons();
+      fetchProductData();
+    });
   </script>
 </nav>
