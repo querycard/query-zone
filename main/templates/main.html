@@ -55,7 +55,14 @@
     </div>
 
     <!-- Product Grid -->
-    <div id="grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+     <div id="grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {% for product in product_list %}
+        {% include 'card_product.html' with product=product %}
+    {% empty %}
+        <p class="text-gray-400">Belum ada produk.</p>
+    {% endfor %}
+  </div>
+
 
     <!-- Modal Create Product -->
     <div id="modal-create" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
@@ -124,57 +131,34 @@ let activeFilter = 'all';
 function showModal() { modal.classList.remove('hidden'); }
 modalCancel.addEventListener('click', ()=>modal.classList.add('hidden'));
 
-// Build product card
-function buildCard(item) {
-  const card = document.createElement('article');
-  card.className = 'product-card flex flex-col';
-  card.innerHTML = `
-    <div class="aspect-[16/9] relative overflow-hidden mb-4">
-      ${item.thumbnail ? `<img src="${item.thumbnail}" class="w-full h-full object-cover">` : `<div class="w-full h-full bg-gray-700"></div>`}
-      <div class="absolute top-3 left-3">
-        <span class="px-2 py-1 rounded text-xs font-medium bg-green-600 text-white">${item.category}</span>
-      </div>
-    </div>
-    <div class="p-4 flex flex-col flex-1">
-      <h3 class="font-semibold text-lg mb-2">${item.name}</h3>
-      <p class="text-gray-400 text-sm mb-2 line-clamp-2">${item.description}</p>
-      <div class="mt-auto flex justify-between items-center">
-        <a href="#" class="text-green-500 text-sm">Read more</a>
-        ${CURRENT_USER_ID==item.user_id ? `<div class="flex gap-2"><button>Edit</button><button>Delete</button></div>` : ''}
-      </div>
-    </div>
-  `;
-  return card;
-}
+// // Fetch products
+// async function fetchProducts() {
+//   loading.classList.remove('hidden');
+//   grid.classList.add('hidden');
+//   empty.classList.add('hidden');
 
-// Fetch products
-async function fetchProducts() {
-  loading.classList.remove('hidden');
-  grid.classList.add('hidden');
-  empty.classList.add('hidden');
+//   try {
+//     const res = await fetch(Product_API_ENDPOINT);
+//     const data = await res.json();
+//     allProducts = data || [];
 
-  try {
-    const res = await fetch(Product_API_ENDPOINT);
-    const data = await res.json();
-    allProducts = data || [];
+//     const filtered = activeFilter === 'my'
+//       ? allProducts.filter(p=>p.user_id==CURRENT_USER_ID)
+//       : allProducts;
 
-    const filtered = activeFilter === 'my'
-      ? allProducts.filter(p=>p.user_id==CURRENT_USER_ID)
-      : allProducts;
-
-    if(filtered.length === 0) empty.classList.remove('hidden');
-    else {
-      grid.innerHTML = '';
-      filtered.forEach(p=>grid.appendChild(buildCard(p)));
-      grid.classList.remove('hidden');
-    }
-  } catch(e) {
-    console.error(e);
-    empty.classList.remove('hidden');
-  } finally {
-    loading.classList.add('hidden');
-  }
-}
+//     if(filtered.length === 0) empty.classList.remove('hidden');
+//     else {
+//       grid.innerHTML = '';
+//       filtered.forEach(p=>grid.appendChild(buildCard(p)));
+//       grid.classList.remove('hidden');
+//     }
+//   } catch(e) {
+//     console.error(e);
+//     empty.classList.remove('hidden');
+//   } finally {
+//     loading.classList.add('hidden');
+//   }
+// }
 
 // Filter buttons
 filterAllBtn.addEventListener('click', ()=>{
